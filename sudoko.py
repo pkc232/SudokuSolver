@@ -8,6 +8,17 @@ class SudokuSolver():
         self.SQ_N = int(sqrt(N))
         self.VALID_SET = set(range(1,N+1))
 
+    def print_sudoku(self, mat):
+        for i in range(self.N):
+            if i%self.SQ_N == 0:
+                print("-"*38)
+            for j in range(self.N):
+                if j%self.SQ_N == 0:
+                    print('|', end='  ')
+                print(mat[i][j], end='  ')
+            print('|')
+        print("-"*38)
+
     def is_valid_square(self, mat, start_row, start_col):
         current_set = set()
         for i in range(start_row, start_row+self.SQ_N):
